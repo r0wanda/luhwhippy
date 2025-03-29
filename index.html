@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>tits 1</title>
+    <style>
+        html {
+            height: 100%;
+        }
+        body{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to bottom right, indianred, dodgerblue, gold, purple, limegreen, maroon);
+        }
+    </style>
+</head>
+<body>
+    <h1>tuff internet translator series 1000</h1>
+    <h3>trnaslate to uuuuuu</h3>
+    <label>input:</label>
+    <input id="toin" type="text">
+    <label>output:</label>
+    <input id="toout" type="text" readonly>
+
+    <h3>translate from uuuuuuuuuuu</h3>
+    <label>input:</label>
+    <input id="fromin" type="text">
+    <label>output:</label>
+    <input id="fromout" type="text" readonly>
+    <script>
+        const fromIn = document.querySelector('#fromin');
+        const fromOut = document.querySelector('#fromout');
+        const toIn = document.querySelector('#toin');
+        const toOut = document.querySelector('#toout');
+        const alpha = 'abcdefghijklmnopqrstuvwxyz';
+        fromIn.addEventListener('input', () => {
+            let val = (fromIn.value || '').toLowerCase();
+            val = val.replace(/[^u ]/gi, '');
+            fromOut.value = val.split(' ').map(s => alpha.charAt(s.length - 1) || '').join('');
+        });
+        toIn.addEventListener('input', () => {
+            let val = (toIn.value || '').toLowerCase();
+            val = val.replace(/[^a-z]/gi, '');
+            toOut.value = val.split('').map(ch => 'u'.repeat(alpha.indexOf(ch) + 1) + ' ').join('');
+        });
+    </script>
+</body>
+</html>
